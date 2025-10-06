@@ -1,0 +1,21 @@
+# ROM files
+*.nes
+*.zip
+
+# CHR/Graphics binaries (extracted from ROM, can be regenerated)
+data/graphics/*.bin
+
+# Build artifacts
+build/
+*.o
+*.lst
+*.map
+
+# Temporary files
+*~
+*.swp
+*.bak
+
+# OS specific
+.DS_Store
+Thumbs.db
