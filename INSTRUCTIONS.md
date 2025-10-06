@@ -12,7 +12,7 @@ You must legally obtain the "Trojan (USA)" NES ROM file. This can be done by:
 
 2. **From legal sources**
    - The ROM is available from various legal ROM distribution sites
-   - Original source URL (if accessible): https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/Trojan%20%28USA%29.zip
+   - Original source URL (may be inaccessible due to firewall blocks): https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29/Trojan%20%28USA%29.zip
 
 ### Expected ROM Information
 
