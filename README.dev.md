@@ -116,17 +116,23 @@ enemy_health:       .res 8    ; Health values
 Example linker configuration:
 ```
 MEMORY {
-    HEADER: start = $0000, size = $0010, fill = yes, fillval = $00;
-    PRG:    start = $8000, size = $8000, fill = yes, fillval = $FF;
-    CHR:    start = $0000, size = $2000, fill = yes, fillval = $00;
+    ZEROPAGE: start = $0000, size = $0100, type = rw, fill = yes, fillval = $00;
+    RAM:      start = $0100, size = $0700, type = rw, fill = yes, fillval = $00;
+    BSS:      start = $0800, size = $0800, type = rw, fill = yes, fillval = $00;
+    HEADER:   start = $0000, size = $0010, fill = yes, fillval = $00;
+    PRG:      start = $8000, size = $8000, fill = yes, fillval = $FF;
+    CHR:      start = $0000, size = $2000, fill = yes, fillval = $00;
 }
 
 SEGMENTS {
-    HEADER:   load = HEADER, type = ro;
-    CODE:     load = PRG,    type = ro;
-    RODATA:   load = PRG,    type = ro;
-    VECTORS:  load = PRG,    type = ro, start = $FFFA;
-    CHARS:    load = CHR,    type = ro;
+    ZEROPAGE: load = ZEROPAGE, type = zp;
+    RAM:      load = RAM,      type = rw;
+    BSS:      load = BSS,      type = bss;
+    HEADER:   load = HEADER,   type = ro;
+    CODE:     load = PRG,      type = ro;
+    RODATA:   load = PRG,      type = ro;
+    VECTORS:  load = PRG,      type = ro, start = $FFFA;
+    CHARS:    load = CHR,      type = ro;
 }
 ```
 
