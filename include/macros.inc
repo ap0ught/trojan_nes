@@ -60,7 +60,7 @@
 .macro CLEAR_PAGE page
     LDA #$00
     TAX
-:   STA page*$100,X
+:   STA page<<8,X
     INX
     BNE :-
 .endmacro
