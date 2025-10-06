@@ -14,11 +14,11 @@ INC_DIR = include
 BUILD_DIR = build
 
 # Source files
-SOURCES = $(SRC_DIR)/main.asm $(SRC_DIR)/vectors.asm
+SOURCES = $(SRC_DIR)/main.asm $(SRC_DIR)/vectors.asm $(SRC_DIR)/chr_rom.asm
 INCLUDES = $(INC_DIR)/constants.inc $(INC_DIR)/macros.inc
 
 # Object files
-OBJECTS = $(BUILD_DIR)/main.o $(BUILD_DIR)/vectors.o
+OBJECTS = $(BUILD_DIR)/main.o $(BUILD_DIR)/vectors.o $(BUILD_DIR)/chr_rom.o
 
 # Output ROM
 ROM = $(BUILD_DIR)/$(PROJECT).nes
@@ -48,6 +48,10 @@ $(BUILD_DIR)/main.o: $(SRC_DIR)/main.asm $(INCLUDES) | $(BUILD_DIR)
 # Assemble vectors.asm
 $(BUILD_DIR)/vectors.o: $(SRC_DIR)/vectors.asm $(INCLUDES) | $(BUILD_DIR)
 	$(CA65) $(ASFLAGS) -o $(BUILD_DIR)/vectors.o $(SRC_DIR)/vectors.asm
+
+# Assemble chr_rom.asm
+$(BUILD_DIR)/chr_rom.o: $(SRC_DIR)/chr_rom.asm | $(BUILD_DIR)
+	$(CA65) $(ASFLAGS) -o $(BUILD_DIR)/chr_rom.o $(SRC_DIR)/chr_rom.asm
 
 # Clean build artifacts
 clean:

@@ -110,6 +110,16 @@ assemble_sources() {
         print_error "Source file not found: ${SRC_DIR}/vectors.asm"
         exit 1
     fi
+    
+    # Assemble chr_rom.asm
+    if [ -f "${SRC_DIR}/chr_rom.asm" ]; then
+        print_info "  Assembling chr_rom.asm..."
+        ca65 -I ${INC_DIR} -o ${BUILD_DIR}/chr_rom.o -l ${BUILD_DIR}/chr_rom.lst ${SRC_DIR}/chr_rom.asm
+        print_success "  chr_rom.o created"
+    else
+        print_error "Source file not found: ${SRC_DIR}/chr_rom.asm"
+        exit 1
+    fi
 }
 
 # Link object files
@@ -121,7 +131,7 @@ link_rom() {
         exit 1
     fi
     
-    ld65 -C nes.cfg -o ${ROM_OUTPUT} -m ${BUILD_DIR}/${PROJECT_NAME}.map ${BUILD_DIR}/main.o ${BUILD_DIR}/vectors.o
+    ld65 -C nes.cfg -o ${ROM_OUTPUT} -m ${BUILD_DIR}/${PROJECT_NAME}.map ${BUILD_DIR}/main.o ${BUILD_DIR}/vectors.o ${BUILD_DIR}/chr_rom.o
     
     if [ -f "${ROM_OUTPUT}" ]; then
         print_success "ROM created: ${ROM_OUTPUT}"

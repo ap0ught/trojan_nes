@@ -1,7 +1,9 @@
 # ROM files
 *.nes
 *.zip
-*.bin
+
+# CHR/Graphics binaries (extracted from ROM, can be regenerated)
+data/graphics/*.bin
 
 # Build artifacts
 build/

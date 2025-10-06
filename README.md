@@ -48,7 +48,18 @@ You must legally obtain the original "Trojan (USA)" ROM file. Place it in the ro
 - Platform: Nintendo Entertainment System (Headered)
 - Source: No-Intro set
 
-### 2. Disassembly (If starting fresh)
+### 2. Extract Graphics
+
+Extract CHR ROM (graphics tiles) from the ROM:
+
+```bash
+# Extract graphics to data/graphics directory
+python3 tools/extract_chr.py trojan_usa.nes data/graphics/trojan_chr.bin
+```
+
+This extracts all sprite and background tiles for viewing, editing, or documentation.
+
+### 3. Disassembly (If starting fresh)
 
 If you need to create the initial disassembly:
 
@@ -57,7 +68,7 @@ If you need to create the initial disassembly:
 da65 trojan_usa.nes -o src/trojan.asm
 ```
 
-### 3. Building
+### 4. Building
 
 #### Using the Build Script (Recommended)
 
