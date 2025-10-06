@@ -94,6 +94,15 @@ SPRITE_BUFFER   = $0200     ; OAM sprite buffer
 STACK_PAGE      = $0100     ; Stack page
 
 ; ============================================================================
+; iNES Header Constants
+; ============================================================================
+INES_MAGIC      = $1A       ; iNES header identifier (4th byte after "NES")
+INES_PRG_BANKS  = $08       ; Number of 16KB PRG ROM banks
+INES_CHR_BANKS  = $10       ; Number of 8KB CHR ROM banks
+INES_MAPPER     = $01       ; Mapper 0, horizontal mirroring
+INES_MAPPER2    = $00       ; Mapper 0 continued
+
+; ============================================================================
 ; External References
 ; ============================================================================
 .globalzp frame_counter, game_state

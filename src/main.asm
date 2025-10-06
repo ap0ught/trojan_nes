@@ -10,11 +10,11 @@
 ; iNES Header
 ; ============================================================================
 .segment "HEADER"
-    .byte "NES", $1A    ; iNES header identifier
-    .byte $08           ; 8 * 16KB PRG ROM
-    .byte $10           ; 16 * 8KB CHR ROM
-    .byte $01           ; Mapper 0, horizontal mirroring
-    .byte $00           ; Mapper 0 continued
+    .byte "NES", INES_MAGIC     ; iNES header identifier
+    .byte INES_PRG_BANKS        ; 8 * 16KB PRG ROM
+    .byte INES_CHR_BANKS        ; 16 * 8KB CHR ROM
+    .byte INES_MAPPER           ; Mapper 0, horizontal mirroring
+    .byte INES_MAPPER2          ; Mapper 0 continued
     .byte $00, $00, $00, $00, $00, $00, $00, $00
 
 ; ============================================================================
