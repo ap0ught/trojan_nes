@@ -1,0 +1,19 @@
+# ROM files
+*.nes
+*.zip
+*.bin
+
+# Build artifacts
+build/
+*.o
+*.lst
+*.map
+
+# Temporary files
+*~
+*.swp
+*.bak
+
+# OS specific
+.DS_Store
+Thumbs.db
