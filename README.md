@@ -59,12 +59,42 @@ da65 trojan_usa.nes -o src/trojan.asm
 
 ### 3. Building
 
+#### Using the Build Script (Recommended)
+
+```bash
+# Make the script executable (first time only)
+chmod +x build.sh
+
+# Build the ROM
+./build.sh
+
+# Or use specific commands
+./build.sh build    # Build the ROM
+./build.sh clean    # Clean build artifacts
+./build.sh rebuild  # Clean and rebuild
+./build.sh verify   # Build and verify against original ROM
+./build.sh help     # Show help message
+```
+
+#### Using Make
+
+```bash
+make              # Build the ROM
+make clean        # Clean build artifacts
+make rebuild      # Clean and rebuild
+make run          # Build and run in emulator (requires fceux)
+make verify       # Compare with original ROM
+```
+
+#### Manual Build
+
 ```bash
 # Assemble the source
-ca65 src/main.asm -o build/trojan.o
+ca65 -I include src/main.asm -o build/main.o
+ca65 -I include src/vectors.asm -o build/vectors.o
 
 # Link to create ROM
-ld65 -C nes.cfg build/trojan.o -o trojan_built.nes
+ld65 -C nes.cfg build/main.o build/vectors.o -o build/trojan.nes
 ```
 
 ## Features
